@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Editor Tool</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>HTML Editor Tool</h1>
+            <p>Upload your HTML file or paste your HTML code below to add editing capabilities</p>
+        </header>
+
+        <div class="input-section">
+            <div class="tabs">
+                <button class="tab-button active" data-tab="upload">Upload File</button>
+                <button class="tab-button" data-tab="paste">Paste HTML</button>
+            </div>
+
+            <div class="tab-content active" id="upload-tab">
+                <div class="file-drop-area">
+                    <span class="file-msg">Drag & drop your HTML file here or</span>
+                    <input class="file-input" type="file" accept=".html, .htm">
+                    <button class="select-file-btn">Browse Files</button>
+                </div>
+            </div>
+
+            <div class="tab-content" id="paste-tab">
+                <textarea id="html-input" placeholder="Paste your HTML code here..."></textarea>
+                <button id="process-html-btn">Process HTML</button>
+            </div>
+        </div>
+
+        <div class="output-section" style="display: none;">
+            <div class="control-bar">
+                <h2>Preview</h2>
+                <div class="header-controls-container">
+                    <button id="export-button">Export Clean Version</button>
+                    <button id="get-code-button">Get Editable Code</button>
+                    <button id="reset-button">Start Over</button>
+                </div>
+            </div>
+            <div class="preview-container">
+                <iframe id="preview-frame"></iframe>
+            </div>
+        </div>
+
+        <div class="code-modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Editable HTML Code</h2>
+                <p>Copy this code and save it as an HTML file to use offline:</p>
+                <textarea id="code-output" readonly></textarea>
+                <button id="copy-code-btn">Copy Code</button>
+            </div>
+        </div>
+
+        <div class="loading-overlay" style="display: none;">
+            <div class="spinner"></div>
+            <p>Processing...</p>
+        </div>
+
+        <div class="error-container" style="display: none;">
+            <h3>Error</h3>
+            <p id="error-message"></p>
+            <button id="error-close-btn">Close</button>
+        </div>
+
+        <footer>
+            <p>This tool runs entirely in your browser. Your HTML is not sent to any server.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
